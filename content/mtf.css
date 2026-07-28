@@ -1,0 +1,369 @@
+.btn-outline-primary,
+.wpcf7 input[type=submit] {
+    color: #F4A830;
+    border-color: #F4A830;
+}
+
+#rc-widget {
+    font-family: system-ui;
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    background: #fff;
+    min-height: 100vh;
+    display: flex;
+    gap: 2.5rem;
+    align-items: flex-start;
+    box-sizing: border-box;
+}
+
+#rc-widget *,
+#rc-widget *::before,
+#rc-widget *::after {
+    box-sizing: inherit;
+}
+
+/* ===========================
+   SIDEBAR
+=========================== */
+
+#rc-widget .rc-sidebar {
+    flex: 0 0 280px;
+    min-width: 220px;
+    position: sticky;
+    top: 2rem;
+    align-self: flex-start;
+
+    max-height: calc(100vh - 4rem);
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    padding-right: 0.75rem;
+
+    /* Hide the scrollbar but keep scrolling working */
+    scrollbar-width: none;       /* Firefox */
+    -ms-overflow-style: none;    /* old Edge / IE */
+}
+
+/* Chrome / Edge / Safari */
+#rc-widget .rc-sidebar::-webkit-scrollbar {
+    display: none;
+}
+
+#rc-widget .rc-title {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #203A5F;
+}
+
+#rc-widget .rc-search-input {
+    width: 100%;
+    max-width: 350px;
+    padding: 0.4rem 0.6rem;
+    font-size: 0.95rem;
+    border: 1px solid #d9d9d9;
+    border-radius: 6px;
+    margin: 0.75rem 0;
+    transition: .2s;
+}
+
+#rc-widget .rc-search-input:focus {
+    border-color: #00779A;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0,119,154,.15);
+}
+
+#rc-widget .rc-category-list {
+    list-style: none;
+    margin: .75rem 0 0;
+    padding: 0;
+}
+
+#rc-widget .rc-category-item {
+    list-style: none;
+    margin-bottom: .2rem;
+}
+
+#rc-widget .rc-parent-row {
+    display: flex;
+    align-items: center;
+    gap: .45rem;
+    cursor: pointer;
+    padding: .3rem 0;
+    width: fit-content;
+    transition: .2s;
+}
+
+#rc-widget .rc-parent-name {
+    font-weight: 600;
+    font-size: 1rem;
+    color: #203A5F;
+    transition: color .2s;
+}
+
+#rc-widget summary:hover .rc-parent-name {
+    color: #00779A;
+}
+
+#rc-widget .rc-toggle-btn {
+    width: 1.4rem;
+    background: none;
+    border: none;
+    padding: 0;
+    line-height: 1;
+    font-size: 1.5rem;
+    color: #00779A;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+#rc-widget details[open] > summary .rc-parent-name,
+#rc-widget details[open] > summary .rc-toggle-btn {
+    color: #F4A830;
+}
+
+#rc-widget .rc-children-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    padding-left: 1.6rem;
+    margin-bottom: .2rem;
+}
+
+#rc-widget .rc-children-wrapper.rc-hidden {
+    display: none;
+}
+
+#rc-widget .rc-child-item {
+    display: block;
+    color: #444;
+    text-decoration: none;
+    padding: .18rem .45rem;
+    margin: 1px 0;
+    border-left: 3px solid transparent;
+    border-radius: 4px;
+    font-size: .92rem;
+    line-height: 1.3;
+    transition:
+        background .18s ease,
+        color .18s ease,
+        border-color .18s ease,
+        padding-left .18s ease;
+}
+
+#rc-widget .rc-child-item:hover {
+    background: rgba(141,170,62,.12);
+    color: #203A5F;
+    border-left-color: #8DAA3E;
+    padding-left: .75rem;
+    text-decoration: none;
+}
+
+#rc-widget .rc-hint {
+    margin-top: 1rem;
+    padding-top: .75rem;
+    border-top: 1px solid #ddd;
+    color: #666;
+    font-size: .8rem;
+}
+/* ===========================
+   CONTENT
+=========================== */
+
+#rc-widget .rc-content {
+    flex: 1;
+    min-width: 260px;
+    padding-right: 1rem;
+}
+
+#rc-widget .rc-content-section {
+    margin-bottom: 2.75rem;
+    scroll-margin-top: 1rem;
+}
+
+#rc-widget .rc-section-title {
+    margin: 0 0 .75rem;
+    padding-bottom: .4rem;
+    font-size: 1.55rem;
+    font-weight: 600;
+    color: #203A5F;
+    border-bottom: 3px solid #F4A830;
+}
+
+#rc-widget .rc-resource {
+    margin-bottom: 1.4rem;
+}
+
+#rc-widget .rc-resource-name {
+    display: inline-block;
+    color: #00779A;
+    font-size: 1.08rem;
+    font-weight: 600;
+    margin-bottom: .25rem;
+}
+
+#rc-widget .rc-resource-text {
+    line-height: 1.65;
+    color: #444;
+}
+
+#rc-widget .rc-resource-text a,
+#rc-widget .rc-content a {
+    color: #00779A;
+    text-decoration: none;
+    transition: color .18s ease;
+}
+
+#rc-widget .rc-resource-text a:hover,
+#rc-widget .rc-content a:hover {
+    color: #203A5F;
+    text-decoration: underline;
+}
+
+#rc-widget .rc-divider {
+    border: 0;
+    border-top: 1px solid #e6e6e6;
+    margin: 1.25rem 0;
+}
+
+#rc-widget .rc-empty {
+    padding: 1rem 0;
+    color: #777;
+    font-style: italic;
+}
+
+/* ===========================
+   DETAILS / TOGGLE
+=========================== */
+
+#rc-widget summary.rc-summary {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    user-select: none;
+}
+
+#rc-widget summary.rc-summary::-webkit-details-marker {
+    display: none;
+}
+
+#rc-widget summary.rc-summary::marker {
+    content: none;
+}
+
+#rc-widget .rc-toggle-btn::after {
+    content: "+";
+    font-weight: 500;
+}
+
+#rc-widget details[open] .rc-toggle-btn::after {
+    content: "\2212";
+}
+
+/* Optional subtle animation */
+
+#rc-widget details > summary {
+    transition: color .2s ease;
+}
+
+#rc-widget details[open] > summary {
+    margin-bottom: .2rem;
+}
+
+/* ===========================
+   FOCUS STATES
+=========================== */
+
+#rc-widget a:focus-visible,
+#rc-widget summary:focus-visible {
+    outline: 2px solid #00779A;
+    outline-offset: 2px;
+    border-radius: 4px;
+}
+
+/* ===========================
+   SMOOTH SCROLL
+=========================== */
+
+html:has(#rc-widget) {
+    scroll-behavior: smooth;
+}
+
+/* ===========================
+   MOBILE
+=========================== */
+
+@media (max-width: 900px) {
+
+    #rc-widget {
+        gap: 2rem;
+    }
+
+    #rc-widget .rc-sidebar {
+        flex-basis: 240px;
+        min-width: 220px;
+    }
+
+}
+
+@media (max-width: 640px) {
+
+    #rc-widget {
+        flex-direction: column;
+        padding: 1.25rem;
+        gap: 1.5rem;
+    }
+
+    #rc-widget .rc-sidebar {
+        position: static;
+        max-height: none;
+        overflow: visible;
+        width: 100%;
+        min-width: 100%;
+        padding-right: 0;
+    }
+
+    #rc-widget .rc-content {
+        min-width: 100%;
+        padding-right: 0;
+    }
+
+    #rc-widget .rc-title {
+        font-size: 1.35rem;
+    }
+
+    #rc-widget .rc-section-title {
+        font-size: 1.35rem;
+    }
+
+    #rc-widget .rc-parent-name {
+        font-size: .98rem;
+    }
+
+    #rc-widget .rc-child-item {
+        font-size: .9rem;
+    }
+
+}
+
+/* ===========================
+   OPTIONAL POLISH
+=========================== */
+
+/* Give the active anchor target a subtle flash */
+#rc-widget .rc-content-section:target {
+    animation: rc-highlight 1s ease;
+}
+
+@keyframes rc-highlight {
+
+    0% {
+        background: rgba(244, 168, 48, .20);
+    }
+
+    100% {
+        background: transparent;
+    }
+
+}
