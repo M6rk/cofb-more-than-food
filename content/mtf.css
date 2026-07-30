@@ -346,12 +346,6 @@ html:has(#rc-widget) {
     }
 
 }
-
-/* ===========================
-   OPTIONAL POLISH
-=========================== */
-
-/* Give the active anchor target a subtle flash */
 #rc-widget .rc-content-section:target {
     animation: rc-highlight 1s ease;
 }
@@ -366,4 +360,383 @@ html:has(#rc-widget) {
         background: transparent;
     }
 
+}
+.fb-events-wrapper,
+.fb-events-wrapper * ,
+.fb-events-wrapper *::before,
+.fb-events-wrapper *::after {
+  box-sizing: border-box;
+}
+
+.fb-events-wrapper {
+  --fb-yellow: #F4A830;
+  --fb-green:  #8DAA3E;
+  --fb-teal:   #00779A;
+  --fb-red:    #EC514B;
+  --fb-pink:   #C2569F;
+  --fb-navy:   #203A5F;
+
+  max-width: 1200px;
+  width: 100%;
+  margin: 2.5rem auto;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  color: var(--fb-navy);
+  line-height: 1.5;
+}
+
+.fb-events-wrapper h2.fb-heading {
+  font-size: 1.7rem;
+  font-weight: 700;
+  color: var(--fb-navy);
+  margin: 0 0 0.3rem 0;
+  letter-spacing: -0.01em;
+}
+
+.fb-events-wrapper p.fb-subheading {
+  margin: 0 0 1.5rem 0;
+  color: #5a6b83;
+  font-size: 1rem;
+}
+
+/* Scrollable event list container — no background fill, border only */
+.fb-events-list {
+  max-height: 560px;
+  overflow-y: auto;
+  border: 1px solid #d7d7cf;
+  border-radius: 14px;
+  padding: 0.5rem;
+}
+
+.fb-events-list::-webkit-scrollbar {
+  width: 10px;
+}
+.fb-events-list::-webkit-scrollbar-track {
+  background: transparent;
+}
+.fb-events-list::-webkit-scrollbar-thumb {
+  background-color: #c7c5ba;
+  border-radius: 10px;
+}
+
+/* Each event row */
+.fb-event-row {
+  display: flex;
+  align-items: stretch;
+  gap: 1.1rem;
+  padding: 1.1rem 0.75rem;
+  min-height: 108px;
+  border-bottom: 1px solid #e2e1d8;
+}
+
+.fb-event-row:last-child {
+  border-bottom: none;
+}
+
+/* Date badge block — the only intentional color fills in the layout */
+.fb-event-date {
+  flex: 0 0 92px;
+  width: 92px;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  padding: 0.5rem 0.25rem;
+  text-align: center;
+}
+
+.fb-event-date .fb-month {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  opacity: 0.92;
+}
+
+.fb-event-date .fb-day {
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1.1;
+  margin: 0.1rem 0;
+}
+
+.fb-event-date .fb-year {
+  font-size: 0.75rem;
+  font-weight: 600;
+  opacity: 0.9;
+}
+
+/* Color rotation for date badges */
+.fb-event-row:nth-child(6n+1) .fb-event-date { background: var(--fb-teal); }
+.fb-event-row:nth-child(6n+2) .fb-event-date { background: var(--fb-green); }
+.fb-event-row:nth-child(6n+3) .fb-event-date { background: var(--fb-yellow); }
+.fb-event-row:nth-child(6n+4) .fb-event-date { background: var(--fb-red); }
+.fb-event-row:nth-child(6n+5) .fb-event-date { background: var(--fb-pink); }
+.fb-event-row:nth-child(6n+6) .fb-event-date { background: var(--fb-navy); }
+
+/* Event content */
+.fb-event-content {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 0;
+  gap: 0.5rem;
+}
+
+.fb-event-main {
+  min-width: 0;
+}
+
+.fb-event-desc {
+  min-width: 0;
+}
+
+.fb-event-title {
+  font-size: 1.08rem;
+  font-weight: 700;
+  color: var(--fb-navy);
+  margin: 0 0 0.3rem 0;
+}
+
+.fb-event-meta {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--fb-teal);
+  margin: 0;
+}
+
+.fb-event-details {
+  font-size: 0.92rem;
+  color: #5a6b83;
+  margin: 0;
+}
+
+/* Use the extra width on larger screens: title/meta and details sit side by side */
+@media (min-width: 900px) {
+  .fb-event-content {
+    flex-direction: row;
+    align-items: center;
+    gap: 2.5rem;
+  }
+  .fb-event-main {
+    flex: 0 0 280px;
+  }
+  .fb-event-desc {
+    flex: 1 1 auto;
+  }
+}
+
+/* Signup section — bordered, no background fill */
+.fb-signup {
+  margin-top: 2rem;
+  border: 2px solid var(--fb-navy);
+  border-radius: 14px;
+  padding: 2rem 1.75rem;
+  text-align: center;
+}
+
+.fb-signup h3 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin: 0 0 0.6rem 0;
+  color: var(--fb-navy);
+}
+
+.fb-signup p {
+  font-size: 0.98rem;
+  color: #5a6b83;
+  max-width: 480px;
+  margin: 0 auto 1.4rem auto;
+}
+
+.fb-signup-btn {
+  display: inline-block;
+  background: var(--fb-yellow);
+  color: var(--fb-navy);
+  font-weight: 700;
+  font-size: 0.98rem;
+  text-decoration: none;
+  padding: 0.85rem 2rem;
+  border-radius: 999px;
+  transition: transform 0.15s ease, background 0.15s ease;
+}
+
+.fb-signup-btn:hover {
+  background: #ffb84d;
+  transform: translateY(-1px);
+  color: var(--fb-navy);
+  text-decoration: none;
+}
+
+@media (max-width: 480px) {
+  .fb-event-row {
+    gap: 0.75rem;
+  }
+  .fb-event-date {
+    flex: 0 0 72px;
+    width: 72px;
+  }
+  .fb-event-date .fb-day {
+    font-size: 1.6rem;
+  }
+  .fb-signup {
+    padding: 1.5rem 1.1rem;
+  }
+}
+.fb-recipes-wrapper,
+.fb-recipes-wrapper * ,
+.fb-recipes-wrapper *::before,
+.fb-recipes-wrapper *::after {
+  box-sizing: border-box;
+}
+
+.fb-recipes-wrapper {
+  max-width: 1300px;
+  width: 100%;
+  margin: 2.5rem auto;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  color: #203A5F;
+  line-height: 1.5;
+}
+
+.fb-recipes-wrapper h2.fb-heading {
+  font-size: 1.7rem;
+  font-weight: 700;
+  color: #203A5F;
+  margin: 0 0 0.3rem 0;
+}
+
+.fb-recipes-wrapper p.fb-subheading {
+  margin: 0 0 1.5rem 0;
+  color: #5a6b83;
+  font-size: 1rem;
+}
+
+/* "Jump to a recipe" nav — small pill links, no background on the group itself */
+.fb-recipe-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin: 0 0 1.5rem 0;
+}
+
+.fb-nav-link {
+  display: inline-block;
+  font-weight: 700;
+  font-size: 0.88rem;
+  text-decoration: none;
+  padding: 0.55rem 1.1rem;
+  border-radius: 999px;
+  color: #ffffff;
+}
+
+/* Cycle nav pill colors — add more if you add more recipes */
+.fb-nav-link.fb-color-1 { background: #00779A; }
+.fb-nav-link.fb-color-2 { background: #8DAA3E; }
+.fb-nav-link.fb-color-3 { background: #C2569F; }
+.fb-nav-link.fb-color-4 { background: #EC514B; }
+.fb-nav-link.fb-color-5 { background: #F4A830; color: #203A5F; }
+
+/* Recipe list — no outer container border, just flows down the page */
+.fb-recipe-list {
+  margin: 0;
+  padding: 0;
+}
+
+/* Each individual recipe block — spaced out, horizontal line between each */
+.fb-recipe {
+  padding: 3rem 0;
+  border-bottom: 1px solid #e2e1d8;
+}
+
+.fb-recipe:first-child {
+  padding-top: 0.5rem;
+}
+
+.fb-recipe:last-child {
+  border-bottom: none;
+}
+
+.fb-recipe-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #203A5F;
+  margin: 0 0 0.4rem 0;
+}
+
+.fb-recipe-desc {
+  font-size: 0.95rem;
+  color: #5a6b83;
+  margin: 0 0 1.5rem 0;
+}
+
+/* Two-column layout: recipe text on the left, photo on the right */
+.fb-recipe-body {
+  display: flex;
+  flex-wrap: wrap-reverse;
+  gap: 2rem;
+}
+
+.fb-recipe-text {
+  flex: 1 1 320px;
+  min-width: 0;
+}
+
+.fb-recipe-image {
+  flex: 0 0 280px;
+}
+
+.fb-recipe-image img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 10px;
+  display: block;
+}
+
+.fb-recipe-section-label {
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #00779A;
+  margin: 1rem 0 0.4rem 0;
+}
+
+.fb-recipe-section-label:first-child {
+  margin-top: 0;
+}
+
+.fb-recipe ul,
+.fb-recipe ol {
+  margin: 0;
+  padding-left: 1.25rem;
+}
+
+.fb-recipe li {
+  font-size: 0.95rem;
+  margin-bottom: 0.35rem;
+}
+
+.fb-back-to-top {
+  display: inline-block;
+  margin-top: 1.5rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #00779A;
+  text-decoration: none;
+}
+
+.fb-back-to-top:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 600px) {
+  .fb-recipe-image {
+    flex: 0 0 100%;
+    max-width: 220px;
+  }
 }
