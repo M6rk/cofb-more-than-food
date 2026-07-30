@@ -1,0 +1,356 @@
+<style>
+.fb-recipes-wrapper,
+.fb-recipes-wrapper * ,
+.fb-recipes-wrapper *::before,
+.fb-recipes-wrapper *::after {
+  box-sizing: border-box;
+}
+
+.fb-recipes-wrapper {
+  max-width: 1300px;
+  width: 100%;
+  margin: 2.5rem auto;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  color: #203A5F;
+  line-height: 1.5;
+}
+
+.fb-recipes-wrapper h2.fb-heading {
+  font-size: 1.7rem;
+  font-weight: 700;
+  color: #203A5F;
+  margin: 0 0 0.3rem 0;
+}
+
+.fb-recipes-wrapper p.fb-subheading {
+  margin: 0 0 1.5rem 0;
+  color: #5a6b83;
+  font-size: 1rem;
+}
+
+/* "Jump to a recipe" nav — small pill links, no background on the group itself */
+.fb-recipe-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin: 0 0 1.5rem 0;
+}
+
+.fb-nav-link {
+  display: inline-block;
+  font-weight: 700;
+  font-size: 0.88rem;
+  text-decoration: none;
+  padding: 0.55rem 1.1rem;
+  border-radius: 999px;
+  color: #ffffff;
+}
+
+/* Cycle nav pill colors — add more if you add more recipes */
+.fb-nav-link.fb-color-1 { background: #00779A; }
+.fb-nav-link.fb-color-2 { background: #8DAA3E; }
+.fb-nav-link.fb-color-3 { background: #C2569F; }
+.fb-nav-link.fb-color-4 { background: #EC514B; }
+.fb-nav-link.fb-color-5 { background: #F4A830; color: #203A5F; }
+
+/* Recipe list — no outer container border, just flows down the page */
+.fb-recipe-list {
+  margin: 0;
+  padding: 0;
+}
+
+/* Each individual recipe block — spaced out, horizontal line between each */
+.fb-recipe {
+  padding: 3rem 0;
+  border-bottom: 1px solid #e2e1d8;
+}
+
+.fb-recipe:first-child {
+  padding-top: 0.5rem;
+}
+
+.fb-recipe:last-child {
+  border-bottom: none;
+}
+
+.fb-recipe-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #203A5F;
+  margin: 0 0 0.4rem 0;
+}
+
+.fb-recipe-desc {
+  font-size: 0.95rem;
+  color: #5a6b83;
+  margin: 0 0 1.5rem 0;
+}
+
+/* Two-column layout: recipe text on the left, photo on the right */
+.fb-recipe-body {
+  display: flex;
+  flex-wrap: wrap-reverse;
+  gap: 2rem;
+}
+
+.fb-recipe-text {
+  flex: 1 1 320px;
+  min-width: 0;
+}
+
+.fb-recipe-image {
+  flex: 0 0 280px;
+}
+
+.fb-recipe-image img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 10px;
+  display: block;
+}
+
+.fb-recipe-section-label {
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #00779A;
+  margin: 1rem 0 0.4rem 0;
+}
+
+.fb-recipe-section-label:first-child {
+  margin-top: 0;
+}
+
+.fb-recipe ul,
+.fb-recipe ol {
+  margin: 0;
+  padding-left: 1.25rem;
+}
+
+.fb-recipe li {
+  font-size: 0.95rem;
+  margin-bottom: 0.35rem;
+}
+
+.fb-back-to-top {
+  display: inline-block;
+  margin-top: 1.5rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #00779A;
+  text-decoration: none;
+}
+
+.fb-back-to-top:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 600px) {
+  .fb-recipe-image {
+    flex: 0 0 100%;
+    max-width: 220px;
+  }
+}
+</style>
+
+<!--
+  ================================================================
+  HOW TO EDIT THIS PAGE (no coding knowledge needed)
+
+  - Each recipe is one block that starts with <div class="fb-recipe" id="recipe-1">
+    and ends with a matching </div>.
+  - To ADD a recipe: copy one whole recipe block (from <div class="fb-recipe"
+    id="recipe-X"> down to its closing </div>), paste it below the last one,
+    and change the number in id="recipe-X" to the next number.
+  - Then add a matching link up in the nav list near the top:
+    <a href="#recipe-X" class="fb-nav-link fb-color-X">Recipe Name</a>
+    The href="#recipe-X" MUST exactly match the id="recipe-X" on the recipe
+    block, or the link won't jump to it.
+  - To REMOVE a recipe: delete its whole block AND its matching nav link.
+  - To add ingredients or steps: copy a <li>...</li> line and edit the text.
+  - To swap the photo: replace the src="..." link inside the <img> tag with
+    a link to your own photo (upload it to WordPress's Media Library first,
+    then paste that image's URL here).
+  ================================================================
+-->
+
+<div class="fb-recipes-wrapper" id="fb-recipes-top">
+
+  <h2 class="fb-heading">Recipes</h2>
+  <p class="fb-subheading">Simple, budget-friendly recipes using common pantry and food bank staples.</p>
+
+  <nav class="fb-recipe-nav">
+    <a href="#recipe-1" class="fb-nav-link fb-color-1">Hearty Vegetable Soup</a>
+    <a href="#recipe-2" class="fb-nav-link fb-color-2">Bean &amp; Rice Bowl</a>
+    <a href="#recipe-3" class="fb-nav-link fb-color-3">Overnight Oats</a>
+    <a href="#recipe-4" class="fb-nav-link fb-color-4">Sheet Pan Chicken &amp; Veggies</a>
+    <a href="#recipe-5" class="fb-nav-link fb-color-5">No-Bake Energy Bites</a>
+  </nav>
+
+  <div class="fb-recipe-list">
+
+    <div class="fb-recipe" id="recipe-1">
+      <h3 class="fb-recipe-title">Hearty Vegetable Soup</h3>
+      <p class="fb-recipe-desc">A warm, filling soup that stretches canned and fresh vegetables into a full meal.</p>
+
+      <div class="fb-recipe-body">
+        <div class="fb-recipe-text">
+          <p class="fb-recipe-section-label">Ingredients</p>
+          <ul>
+            <li>2 tbsp oil</li>
+            <li>1 onion, chopped</li>
+            <li>2 carrots, chopped</li>
+            <li>2 cans diced tomatoes</li>
+            <li>1 can beans, drained</li>
+            <li>4 cups broth or water</li>
+            <li>Salt and pepper to taste</li>
+          </ul>
+
+          <p class="fb-recipe-section-label">Instructions</p>
+          <ol>
+            <li>Heat oil in a large pot over medium heat.</li>
+            <li>Add onion and carrots, cook 5 minutes until soft.</li>
+            <li>Add tomatoes, beans, and broth. Bring to a boil.</li>
+            <li>Reduce heat and simmer 20 minutes.</li>
+            <li>Season with salt and pepper, then serve.</li>
+          </ol>
+        </div>
+
+        <div class="fb-recipe-image">
+          <img src="https://placehold.co/400x400/e8e6de/203A5F?text=Photo+Coming+Soon" alt="Photo placeholder for Hearty Vegetable Soup">
+        </div>
+      </div>
+
+      <a href="#fb-recipes-top" class="fb-back-to-top">↑ Back to recipe list</a>
+    </div>
+
+    <div class="fb-recipe" id="recipe-2">
+      <h3 class="fb-recipe-title">Bean &amp; Rice Bowl</h3>
+      <p class="fb-recipe-desc">A simple, protein-packed bowl that comes together with just a few pantry staples.</p>
+
+      <div class="fb-recipe-body">
+        <div class="fb-recipe-text">
+          <p class="fb-recipe-section-label">Ingredients</p>
+          <ul>
+            <li>1 cup rice, uncooked</li>
+            <li>1 can beans, drained and rinsed</li>
+            <li>1 tsp cumin</li>
+            <li>1 tsp garlic powder</li>
+            <li>Salt to taste</li>
+            <li>Optional: salsa or shredded cheese</li>
+          </ul>
+
+          <p class="fb-recipe-section-label">Instructions</p>
+          <ol>
+            <li>Cook rice according to package directions.</li>
+            <li>Warm beans in a small pot with cumin and garlic powder.</li>
+            <li>Spoon beans over rice.</li>
+            <li>Top with salsa or cheese if desired, then serve.</li>
+          </ol>
+        </div>
+
+        <div class="fb-recipe-image">
+          <img src="https://placehold.co/400x400/e8e6de/203A5F?text=Photo+Coming+Soon" alt="Photo placeholder for Bean and Rice Bowl">
+        </div>
+      </div>
+
+      <a href="#fb-recipes-top" class="fb-back-to-top">↑ Back to recipe list</a>
+    </div>
+
+    <div class="fb-recipe" id="recipe-3">
+      <h3 class="fb-recipe-title">Overnight Oats</h3>
+      <p class="fb-recipe-desc">A make-ahead breakfast that needs no cooking and keeps in the fridge for days.</p>
+
+      <div class="fb-recipe-body">
+        <div class="fb-recipe-text">
+          <p class="fb-recipe-section-label">Ingredients</p>
+          <ul>
+            <li>1/2 cup oats</li>
+            <li>1/2 cup milk (or water)</li>
+            <li>1 tbsp honey or sugar, optional</li>
+            <li>Fruit, for topping</li>
+          </ul>
+
+          <p class="fb-recipe-section-label">Instructions</p>
+          <ol>
+            <li>Combine oats, milk, and sweetener in a jar or container.</li>
+            <li>Stir well, cover, and refrigerate overnight.</li>
+            <li>In the morning, stir again and top with fruit.</li>
+          </ol>
+        </div>
+
+        <div class="fb-recipe-image">
+          <img src="https://placehold.co/400x400/e8e6de/203A5F?text=Photo+Coming+Soon" alt="Photo placeholder for Overnight Oats">
+        </div>
+      </div>
+
+      <a href="#fb-recipes-top" class="fb-back-to-top">↑ Back to recipe list</a>
+    </div>
+
+    <div class="fb-recipe" id="recipe-4">
+      <h3 class="fb-recipe-title">Sheet Pan Chicken &amp; Veggies</h3>
+      <p class="fb-recipe-desc">One pan, minimal cleanup, and an easy way to use whatever vegetables are on hand.</p>
+
+      <div class="fb-recipe-body">
+        <div class="fb-recipe-text">
+          <p class="fb-recipe-section-label">Ingredients</p>
+          <ul>
+            <li>4 chicken thighs or breasts</li>
+            <li>3 cups mixed vegetables, chopped</li>
+            <li>2 tbsp oil</li>
+            <li>1 tsp paprika</li>
+            <li>Salt and pepper to taste</li>
+          </ul>
+
+          <p class="fb-recipe-section-label">Instructions</p>
+          <ol>
+            <li>Preheat oven to 400°F (200°C).</li>
+            <li>Toss chicken and vegetables with oil and seasonings on a sheet pan.</li>
+            <li>Spread evenly and roast 25–30 minutes, until chicken is cooked through.</li>
+          </ol>
+        </div>
+
+        <div class="fb-recipe-image">
+          <img src="https://placehold.co/400x400/e8e6de/203A5F?text=Photo+Coming+Soon" alt="Photo placeholder for Sheet Pan Chicken and Veggies">
+        </div>
+      </div>
+
+      <a href="#fb-recipes-top" class="fb-back-to-top">↑ Back to recipe list</a>
+    </div>
+
+    <div class="fb-recipe" id="recipe-5">
+      <h3 class="fb-recipe-title">No-Bake Energy Bites</h3>
+      <p class="fb-recipe-desc">A simple no-cook snack, great for kids or an easy grab-and-go bite.</p>
+
+      <div class="fb-recipe-body">
+        <div class="fb-recipe-text">
+          <p class="fb-recipe-section-label">Ingredients</p>
+          <ul>
+            <li>1 cup oats</li>
+            <li>1/2 cup peanut butter</li>
+            <li>1/4 cup honey</li>
+            <li>Optional: raisins or chocolate chips</li>
+          </ul>
+
+          <p class="fb-recipe-section-label">Instructions</p>
+          <ol>
+            <li>Mix all ingredients together in a bowl until well combined.</li>
+            <li>Roll into small balls, about 1 inch wide.</li>
+            <li>Refrigerate at least 30 minutes before serving.</li>
+          </ol>
+        </div>
+
+        <div class="fb-recipe-image">
+          <img src="https://placehold.co/400x400/e8e6de/203A5F?text=Photo+Coming+Soon" alt="Photo placeholder for No-Bake Energy Bites">
+        </div>
+      </div>
+
+      <a href="#fb-recipes-top" class="fb-back-to-top">↑ Back to recipe list</a>
+    </div>
+
+  </div>
+
+</div>
