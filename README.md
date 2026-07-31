@@ -157,7 +157,7 @@ This file controls:
 - Layout
 - Animations
 
-Avoid editing individual inline styles unless necessary (use Claude Code if unsure).
+Avoid editing individual inline styles unless necessary (use [Claude](https://claude.ai/new) if unsure).
 
 ---
 
