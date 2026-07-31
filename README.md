@@ -95,7 +95,7 @@ Do **not** remove any surrounding `<div>` elements.
 
 ---
 
-# Editing Navigation (<li> </li>)
+# Editing Navigation (```<li> </li>``` for mtf-resources.html)
 
 Navigation links are located near the top of each page.
 
